@@ -15,7 +15,12 @@ function Calculator() {
             } catch (error) {
                 setResult('Error');
             }
-        } else if (value === 'C') {
+        } else if (value === 'xʸ') {
+            setInputValue(inputValue + '^');
+        }else if (value === '2ⁿ') {
+            setInputValue((2 ** parseFloat(inputValue)).toString());
+            setResult((2 ** parseFloat(inputValue)).toString());
+        } else if (value === 'CE') {
             setInputValue('');
             setResult('');
         } else if (value === 'del') {
@@ -43,7 +48,13 @@ function Calculator() {
         } else if (value === 'n!') {
             const factorial = (n) => (n <= 1 ? 1 : n * factorial(n - 1));
             setResult(factorial(parseInt(inputValue)).toString());
-        } else {
+        } else if (value === '10ˣ') {
+            setResult((10 ** parseFloat(inputValue)).toString());
+        } else if (value === '+/-') {
+            if (inputValue) {
+                setInputValue((parseFloat(inputValue) * -1).toString());
+            }
+        }else {
             setInputValue(inputValue + value);
         }
     };
